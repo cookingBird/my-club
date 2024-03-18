@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/my-club.iml" filepath="$PROJECT_DIR$/.idea/my-club.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-club-project/my-club-application/my-club-application.iml" filepath="$PROJECT_DIR$/my-club-project/my-club-application/my-club-application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-club-project/my-club-application/my-club-application-controller/my-club-application-controller.iml" filepath="$PROJECT_DIR$/my-club-project/my-club-application/my-club-application-controller/my-club-application-controller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-club-project/my-club-application/my-club-application-job/my-club-application-job.iml" filepath="$PROJECT_DIR$/my-club-project/my-club-application/my-club-application-job/my-club-application-job.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-club-project/my-club-application/my-club-application-mq/my-club-application-mq.iml" filepath="$PROJECT_DIR$/my-club-project/my-club-application/my-club-application-mq/my-club-application-mq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-club-project/my-club-common/my-club-common.iml" filepath="$PROJECT_DIR$/my-club-project/my-club-common/my-club-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-club-project/my-club-domain/my-club-domain.iml" filepath="$PROJECT_DIR$/my-club-project/my-club-domain/my-club-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-club-project/my-club-infra/my-club-infra.iml" filepath="$PROJECT_DIR$/my-club-project/my-club-infra/my-club-infra.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-club-project/my-club-project.iml" filepath="$PROJECT_DIR$/my-club-project/my-club-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-club-project/my-club-starter/my-club-starter.iml" filepath="$PROJECT_DIR$/my-club-project/my-club-starter/my-club-starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-club-project/my-club-subject-api/my-club-subject-api.iml" filepath="$PROJECT_DIR$/my-club-project/my-club-subject-api/my-club-subject-api.iml" />
+    </modules>
+  </component>
+</project>
