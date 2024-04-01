@@ -1,7 +1,9 @@
 package com.cookingBird.subject.infra.basic.mapper;
 
 import com.cookingBird.subject.infra.basic.entity.SubjectCategory;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 

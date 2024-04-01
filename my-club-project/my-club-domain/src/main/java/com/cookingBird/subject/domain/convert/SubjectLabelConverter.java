@@ -12,8 +12,8 @@ import java.util.List;
 public interface SubjectLabelConverter {
     SubjectLabelConverter INSTANCE = Mappers.getMapper(SubjectLabelConverter.class);
 
-    SubjectLabel convertBoToPo(SubjectLabelBO subjectLabelBO);
+    SubjectLabel BO2PO(SubjectLabelBO subjectLabelBO);
 
-    List<SubjectLabelBO> convertPoToBo(List<SubjectLabel> subjectLabelList);
+    List<SubjectLabelBO> ListPO2BO(List<SubjectLabel> subjectLabelList);
 
 }

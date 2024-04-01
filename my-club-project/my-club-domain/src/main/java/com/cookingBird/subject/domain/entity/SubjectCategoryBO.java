@@ -1,10 +1,14 @@
 package com.cookingBird.subject.domain.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
+@Builder
+@AllArgsConstructor
 public class SubjectCategoryBO {
     /**
      * 主键

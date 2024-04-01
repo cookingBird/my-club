@@ -3,7 +3,7 @@ package com.cookingBird.subject.common.enums;
 import lombok.Getter;
 
 @Getter
-public enum IsDeletedFlagEnum {
+public enum IsDeletedFlagEnum implements Enum {
 
     DELETE(1, "已删除"),
     UN_DELETE(0, "未删除"),

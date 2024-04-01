@@ -5,6 +5,7 @@ import com.cookingBird.subject.domain.entity.SubjectLabelBO;
 import java.util.List;
 
 public interface SubjectLabelDomainService {
+
     /**
      * 新增标签
      */

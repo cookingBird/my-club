@@ -3,7 +3,7 @@ package com.cookingBird.subject.common.enums;
 import lombok.Getter;
 
 @Getter
-public enum ResultCodeEnum {
+public enum ResultCodeEnum implements Enum {
     SUCCESS(200, "成功"),
     FAIL(500, "失败"),
     ;

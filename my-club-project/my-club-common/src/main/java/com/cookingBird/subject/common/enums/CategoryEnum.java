@@ -3,7 +3,7 @@ package com.cookingBird.subject.common.enums;
 import lombok.Getter;
 
 @Getter
-public enum CategoryEnum {
+public enum CategoryEnum implements Enum {
     PRIMARY(0, "一级分类"),
     SECOND(1, "二级分类"),
     THIRD(2, "三级分类"),

@@ -4,11 +4,10 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 @SpringBootApplication
-@ComponentScan("com.cookingBird")
 @MapperScan("com.cookingBird.**.mapper")
+@ComponentScan("com.cookingBird")
 public class SubjectApplication {
     public static void main(String[] args) {
         SpringApplication.run(SubjectApplication.class);

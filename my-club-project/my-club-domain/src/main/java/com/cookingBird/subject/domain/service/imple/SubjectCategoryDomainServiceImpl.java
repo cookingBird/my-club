@@ -7,18 +7,15 @@ import com.cookingBird.subject.domain.entity.SubjectCategoryBO;
 import com.cookingBird.subject.domain.entity.SubjectLabelBO;
 import com.cookingBird.subject.domain.service.SubjectCategoryDomainService;
 import com.cookingBird.subject.infra.basic.entity.SubjectCategory;
-import com.cookingBird.subject.infra.basic.repository.SubjectCategoryService;
-import com.cookingBird.subject.infra.basic.repository.SubjectLabelService;
+import com.cookingBird.subject.infra.basic.service.SubjectCategoryService;
+import com.cookingBird.subject.infra.basic.service.SubjectLabelService;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ThreadPoolExecutor;
+import java.util.*;
 
 
 @Service
@@ -30,8 +27,6 @@ public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainSe
     @Resource
     private SubjectLabelService subjectLabelService;
 
-    @Resource
-    private ThreadPoolExecutor labelThreadPool;
 
 
     @Override
@@ -40,7 +35,7 @@ public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainSe
             log.info("SubjectCategoryController.add.bo:{}", JSON.toJSONString(subjectCategoryBO));
         }
         SubjectCategory subjectCategory = SubjectCategoryConverter.INSTANCE
-                .convertBoToPo(subjectCategoryBO);
+                .Bo2Po(subjectCategoryBO);
         subjectCategory.setIsDeleted(IsDeletedFlagEnum.UN_DELETE.getCode());
         subjectCategoryService.insert(subjectCategory);
     }
@@ -53,7 +48,7 @@ public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainSe
     @Override
     public Boolean update(SubjectCategoryBO subjectCategoryBO) {
         SubjectCategory subjectCategory = SubjectCategoryConverter.INSTANCE
-                .convertBoToPo(subjectCategoryBO);
+                .Bo2Po(subjectCategoryBO);
         int count = subjectCategoryService.update(subjectCategory);
         return count > 0;
     }
@@ -61,7 +56,7 @@ public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainSe
     @Override
     public Boolean delete(SubjectCategoryBO subjectCategoryBO) {
         SubjectCategory subjectCategory = SubjectCategoryConverter.INSTANCE
-                .convertBoToPo(subjectCategoryBO);
+                .Bo2Po(subjectCategoryBO);
         subjectCategory.setIsDeleted(IsDeletedFlagEnum.DELETE.getCode());
         int count = subjectCategoryService.update(subjectCategory);
         return count > 0;

@@ -3,15 +3,15 @@ server:
 spring:
   datasource:
     username: root
-#    password: root
-    password: OxyYTVgM7bqRIyXDXav1iq0TmZ7V+lmW2g9AAeeDrQpDhWOlkF5WvvT7Yt9u9fO6BMxfcd51yfnVEkxEwjeNiA==
+    password: root
+    #    password: OxyYTVgM7bqRIyXDXav1iq0TmZ7V+lmW2g9AAeeDrQpDhWOlkF5WvvT7Yt9u9fO6BMxfcd51yfnVEkxEwjeNiA==
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/club?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       initial-size: 20
       min-idle: 20
-      connectionProperties: config.decrypt=true;config.decrypt.key=${privateKey};
+      #      connectionProperties: config.decrypt=true;config.decrypt.key=${privateKey};
       max-active: 100
       max-wait: 60000
       stat-view-servlet:
@@ -31,3 +31,8 @@ spring:
 privateKey: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAI9Cn7BZ5f9EvMaOtQ2cz2qUSSPXj0U51Jjo5tdHIvzUT0YK1lKw6s72ZRTpP6MTXiMgWL20AP0iznHInrDEAukCAwEAAQ==
 logging:
   config: classpath:log4j2-spring.xml
+  level:
+    org:
+      springframework: DEBUG
+
+debug: true

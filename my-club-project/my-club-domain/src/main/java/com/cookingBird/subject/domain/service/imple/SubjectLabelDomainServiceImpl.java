@@ -6,12 +6,10 @@ import com.cookingBird.subject.domain.convert.SubjectLabelConverter;
 import com.cookingBird.subject.domain.entity.SubjectLabelBO;
 import com.cookingBird.subject.domain.service.SubjectLabelDomainService;
 import com.cookingBird.subject.infra.basic.entity.SubjectLabel;
-import com.cookingBird.subject.infra.basic.repository.SubjectCategoryService;
-import com.cookingBird.subject.infra.basic.repository.SubjectLabelService;
+import com.cookingBird.subject.infra.basic.service.SubjectCategoryService;
+import com.cookingBird.subject.infra.basic.service.SubjectLabelService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -33,7 +31,7 @@ public class SubjectLabelDomainServiceImpl implements SubjectLabelDomainService 
             log.info("SubjectLabelDomainServiceImpl.add.bo:{}", JSON.toJSONString(subjectLabelBO));
         }
         SubjectLabel subjectLabel = SubjectLabelConverter.INSTANCE
-                .convertBoToPo(subjectLabelBO);
+                .BO2PO(subjectLabelBO);
         subjectLabel.setIsDeleted(IsDeletedFlagEnum.UN_DELETE.getCode());
         int count = subjectLabelService.insert(subjectLabel);
         return count > 0;
@@ -45,7 +43,7 @@ public class SubjectLabelDomainServiceImpl implements SubjectLabelDomainService 
             log.info("SubjectLabelDomainServiceImpl.update.bo:{}", JSON.toJSONString(subjectLabelBO));
         }
         SubjectLabel subjectLabel = SubjectLabelConverter.INSTANCE
-                .convertBoToPo(subjectLabelBO);
+                .BO2PO(subjectLabelBO);
         int count = subjectLabelService.update(subjectLabel);
         return count > 0;
     }
@@ -56,7 +54,7 @@ public class SubjectLabelDomainServiceImpl implements SubjectLabelDomainService 
             log.info("SubjectLabelDomainServiceImpl.update.bo:{}", JSON.toJSONString(subjectLabelBO));
         }
         SubjectLabel subjectLabel = SubjectLabelConverter.INSTANCE
-                .convertBoToPo(subjectLabelBO);
+                .BO2PO(subjectLabelBO);
         subjectLabel.setIsDeleted(IsDeletedFlagEnum.DELETE.getCode());
         int count = subjectLabelService.update(subjectLabel);
         return count > 0;
