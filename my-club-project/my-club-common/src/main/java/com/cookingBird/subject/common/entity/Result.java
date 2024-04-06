@@ -3,8 +3,10 @@ package com.cookingBird.subject.common.entity;
 import com.cookingBird.subject.common.enums.ResultCodeEnum;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class Result<T> {
+public class Result<T> implements Serializable {
 
     String message;
 
@@ -46,5 +48,15 @@ public class Result<T> {
         result.setMessage(ResultCodeEnum.FAIL.getDesc());
         result.setData(data);
         return result;
+    }
+
+    public static class DELETE {
+        public static Result<Boolean> fail() {
+            return Result.fail();
+        }
+
+        public static Result<Boolean> ok() {
+            return Result.ok();
+        }
     }
 }

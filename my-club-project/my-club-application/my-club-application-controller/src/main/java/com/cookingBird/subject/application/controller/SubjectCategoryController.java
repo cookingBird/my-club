@@ -9,6 +9,7 @@ import com.cookingBird.subject.common.factory.FactoryUnSupportException;
 import com.cookingBird.subject.common.factory.Handler;
 import com.cookingBird.subject.domain.entity.SubjectCategoryBO;
 import com.cookingBird.subject.domain.factory.categoryType.CategoryTypeHandlerFactory;
+import com.cookingBird.subject.domain.queryPO.SubjectCategoryQuery;
 import com.cookingBird.subject.domain.service.SubjectCategoryDomainService;
 import com.google.common.base.Preconditions;
 import lombok.NoArgsConstructor;
@@ -16,8 +17,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @RestController
@@ -41,7 +42,9 @@ public class SubjectCategoryController {
             Preconditions.checkNotNull(subjectCategoryDTO.getCategoryType(), "分类类型不能为空");
             Handler categoryTypeHandler = categoryTypeHandlerFactory.getHandler(subjectCategoryDTO.getCategoryType());
             if (categoryTypeHandler == null) throw FactoryUnSupportException.create();
-            categoryTypeHandler.process(SubjectCategoryDTOConverter.INSTANCE.Dto2Bo(subjectCategoryDTO));
+            SubjectCategoryBO subjectCategoryBO = SubjectCategoryDTOConverter.INSTANCE.Dto2Bo(subjectCategoryDTO);
+            categoryTypeHandler.process(subjectCategoryBO);
+            log.info(subjectCategoryBO.toString() + " " + subjectCategoryBO.getId());
             return Result.ok(true);
         }
         catch (Exception e) {
@@ -62,20 +65,26 @@ public class SubjectCategoryController {
                             .builder()
                             .id(categoryId)
                             .build());
-            return Result.ok();
+            return Result.DELETE.ok();
         }
         catch (Exception e) {
             log.error("SubjectCategoryController.delet.error:{}", e.getMessage(), e);
-            return Result.fail("删除分类失败");
+            return Result.DELETE.fail();
         }
     }
 
     @PostMapping("/query")
     public Result<List<SubjectCategoryDTO>> queryPrimary(@RequestBody SubjectCategoryQueryDTO subjectCategoryQueryDTO) {
-        List<SubjectCategoryDTO> subjectCategoryDTOS = new LinkedList<>();
         if (log.isInfoEnabled()) {
             log.info("SubjectCategoryController.query.dto:{}", JSON.toJSONString(subjectCategoryQueryDTO));
         }
+
+        List<SubjectCategoryDTO> subjectCategoryDTOS = subjectCategoryDomainService
+                .queryCategory(new SubjectCategoryQuery())
+                .stream()
+                .map(SubjectCategoryDTOConverter.INSTANCE::Bo2Dto)
+                .collect(Collectors.toList());
+
         return Result.ok(subjectCategoryDTOS);
     }
 

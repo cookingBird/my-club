@@ -1,7 +1,6 @@
 package com.cookingBird.subject.domain.convert;
 
 import com.cookingBird.subject.domain.entity.SubjectCategoryBO;
-import com.cookingBird.subject.domain.entity.SubjectLabelBO;
 import com.cookingBird.subject.infra.basic.entity.SubjectCategory;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +8,7 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-04-02T00:46:48+0800",
+    date = "2024-04-04T00:44:08+0800",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 1.8.0_92 (Oracle Corporation)"
 )
 public class SubjectCategoryConverterImpl implements SubjectCategoryConverter {
@@ -20,22 +19,13 @@ public class SubjectCategoryConverterImpl implements SubjectCategoryConverter {
             return null;
         }
 
-        Long id = null;
-        String categoryName = null;
-        Integer categoryType = null;
-        String imageUrl = null;
-        Long parentId = null;
+        SubjectCategoryBO subjectCategoryBO = new SubjectCategoryBO();
 
-        id = arg0.getId();
-        categoryName = arg0.getCategoryName();
-        categoryType = arg0.getCategoryType();
-        imageUrl = arg0.getImageUrl();
-        parentId = arg0.getParentId();
-
-        Integer count = null;
-        List<SubjectLabelBO> labelBOList = null;
-
-        SubjectCategoryBO subjectCategoryBO = new SubjectCategoryBO( id, categoryName, categoryType, imageUrl, parentId, count, labelBOList );
+        subjectCategoryBO.setId( arg0.getId() );
+        subjectCategoryBO.setCategoryName( arg0.getCategoryName() );
+        subjectCategoryBO.setCategoryType( arg0.getCategoryType() );
+        subjectCategoryBO.setImageUrl( arg0.getImageUrl() );
+        subjectCategoryBO.setParentId( arg0.getParentId() );
 
         return subjectCategoryBO;
     }

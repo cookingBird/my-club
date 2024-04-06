@@ -2,11 +2,15 @@ package com.cookingBird.subject.infra.basic.entity;
 
 import com.cookingBird.subject.common.entity.BaseEntity;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.io.Serializable;
-import java.util.Date;
+
 
 @Data
+@ToString(callSuper = true)
+@EqualsAndHashCode(callSuper = true)
 public class SubjectCategory extends BaseEntity implements Serializable {
     /**
      * 主键

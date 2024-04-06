@@ -30,7 +30,8 @@ public class SubjectCategoryServiceImpl implements SubjectCategoryService {
             log.info("SubjectCategoryController.add.subjectCategory:{}"
                     , JSON.toJSONString(subjectCategory));
         }
-        this.subjectCategoryDao.insert(subjectCategory);
+        Integer id = this.subjectCategoryDao.insert(subjectCategory);
+        System.out.println("id: " + id);
         return subjectCategory;
     }
 

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cookingBird.subject.infra.basic.mapper.SubjectInfoDao">
+    <resultMap id="subjectInfoMap" type="com.cookingBird.subject.infra.basic.entity.SubjectInfo">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="subjectName" column="subject_name" jdbcType="VARCHAR"/>
+        <result property="subjectDifficult" column="subject_difficult" jdbcType="INTEGER"/>
+        <result property="settleName" column="settle_name" jdbcType="VARCHAR"/>
+        <result property="createdBy" column="created_by" jdbcType="VARCHAR"/>
+        <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <!-- 通过ID查询单条数据 -->
+    <select id="queryById" resultMap="subjectInfoMap">
+        SELECT * FROM subject_info WHERE id = #{id}
+    </select>
+
+    <!-- 查询指定行数据 -->
+    <select id="queryAllByLimit" resultMap="subjectInfoMap">
+        SELECT * FROM subject_info
+        <if test="subjectInfo != null">
+            WHERE
+            <if test="subjectInfo.subjectName != null and subjectInfo.subjectName != ''">
+                subject_name = #{subjectInfo.subjectName}
+            </if>
+            <!-- 其他条件... -->
+        </if>
+        LIMIT #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!-- 统计总行数 -->
+    <select id="count" resultType="long">
+        SELECT COUNT(*) FROM subject_info
+        <if test="subjectInfo != null">
+            WHERE
+            <if test="subjectInfo.subjectName != null and subjectInfo.subjectName != ''">
+                subject_name = #{subjectInfo.subjectName}
+            </if>
+            <!-- 其他条件... -->
+        </if>
+    </select>
+
+    <!-- 新增数据 -->
+    <insert id="insert" parameterType="subjectInfoMap">
+        INSERT INTO subject_info (subject_name, subject_difficult, settle_name, subject_type, subject_score, subject_parse, created_by, created_time, update_by, update_time, is_deleted)
+        VALUES (#{subjectName}, #{subjectDifficult}, #{settleName}, #{subjectType}, #{subjectScore}, #{subjectParse}, #{createdBy}, #{createdTime}, #{updateBy}, #{updateTime}, #{isDeleted})
+    </insert>
+
+    <!-- 批量新增数据（MyBatis原生foreach方法） -->
+    <insert id="insertBatch" parameterType="java.util.List">
+        INSERT INTO subject_info (subject_name, subject_difficult, settle_name, subject_type, subject_score, subject_parse, created_by, created_time, update_by, update_time, is_deleted)
+        VALUES
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.subjectName}, #{entity.subjectDifficult}, #{entity.settleName}, #{entity.subjectType}, #{entity.subjectScore}, #{entity.subjectParse}, #{entity.createdBy}, #{entity.createdTime}, #{entity.updateBy}, #{entity.updateTime}, #{entity.isDeleted})
+        </foreach>
+    </insert>
+
+    <!-- 批量新增或按主键更新数据（MyBatis原生foreach方法） -->
+    <insert id="insertOrUpdateBatch" parameterType="java.util.List">
+        INSERT INTO subject_info (subject_name, subject_difficult, settle_name, subject_type, subject_score, subject_parse, created_by, created_time, update_by, update_time, is_deleted)
+        VALUES
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.subjectName}, #{entity.subjectDifficult}, #{entity.settleName}, #{entity.subjectType}, #{entity.subjectScore}, #{entity.subjectParse}, #{entity.createdBy}, #{entity.createdTime}, #{entity.updateBy}, #{entity.updateTime}, #{entity.isDeleted})
+        </foreach>
+        ON DUPLICATE KEY UPDATE
+        subject_name = VALUES(subject_name),
+        subject_difficult = VALUES(subject_difficult),
+        settle_name = VALUES(settle_name),
+        subject_type = VALUES(subject_type),
+        subject_score = VALUES(subject_score),
+        subject_parse = VALUES(subject_parse),
+        created_by = VALUES(created_by),
+        created_time = VALUES(created_time),
+        update_by = VALUES(update_by),
+        update_time = VALUES(update_time),
+        is_deleted = VALUES(is_deleted)
+    </insert>
+
+    <!-- 修改数据 -->
+    <update id="update" parameterType="subjectInfoMap">
+        UPDATE subject_info
+        <set>
+            <if test="subjectName != null">subject_name = #{subjectName},</if>
+            <if test="subjectDifficult != null">subject_difficult = #{subjectDifficult},</if>
+            <if test="settleName != null">settle_name = #{settleName},</if>
+            <if test="subjectType != null">subject_type = #{subjectType},</if>
+            <if test="subjectScore != null">subject_score = #{subjectScore},</if>
+            <if test="subjectParse != null">subject_parse = #{subjectParse},</if>
+            <if test="createdBy != null">created_by = #{createdBy},</if>
+            <if test="createdTime != null">created_time = #{createdTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="isDeleted != null">is_deleted = #{isDeleted},</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!-- 通过主键删除数据 -->
+    <delete id="deleteById" parameterType="long">
+        DELETE FROM subject_info WHERE id = #{id}
+    </delete>
+</mapper>

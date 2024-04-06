@@ -1,34 +1,28 @@
 package com.cookingBird.subject.common.entity;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 
 @Data
-public class BaseEntity {
-    /**
-     * 创建人
-     */
+public class BaseEntity implements Serializable {
+
+    @ApiModelProperty(value = "创建人")
     private String createdBy;
 
-    /**
-     * 创建时间
-     */
+    @ApiModelProperty(value = "创建时间")
     private Date createdTime;
 
-    /**
-     * 更新人
-     */
+    @ApiModelProperty(value = "修改人")
     private String updateBy;
 
-    /**
-     * 更新时间
-     */
+    @ApiModelProperty(value = "修改时间")
     private Date updateTime;
 
-    /**
-     * 逻辑删除 0未删除 1已删除
-     */
+    @ApiModelProperty(value = "是否删除")
     private Integer isDeleted;
 }

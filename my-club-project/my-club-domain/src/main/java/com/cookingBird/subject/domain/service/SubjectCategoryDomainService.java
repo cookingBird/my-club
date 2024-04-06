@@ -1,6 +1,7 @@
 package com.cookingBird.subject.domain.service;
 
 import com.cookingBird.subject.domain.entity.SubjectCategoryBO;
+import com.cookingBird.subject.domain.queryPO.SubjectCategoryQuery;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public interface SubjectCategoryDomainService {
     /**
      * 查询岗位大类
      */
-    List<SubjectCategoryBO> queryCategory(SubjectCategoryBO subjectCategoryBO);
+    List<SubjectCategoryBO> queryCategory(SubjectCategoryQuery subjectCategoryQO);
 
     /**
      * 更新分类

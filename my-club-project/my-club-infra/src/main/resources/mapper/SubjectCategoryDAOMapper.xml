@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cookingBird.subject.infra.basic.mapper.SubjectCategoryDao">
+<mapper namespace="com.cookingBird.subject.infra.basic.mapper.SubjectCategoryDAO">
 
     <resultMap type="com.cookingBird.subject.infra.basic.entity.SubjectCategory" id="SubjectCategoryMap">
         <result property="id" column="id" jdbcType="INTEGER"/>
@@ -17,16 +17,24 @@
     <!--查询单个-->
     <select id="queryById" resultMap="SubjectCategoryMap">
         select id,
-               category_name,
-               category_type,
-               image_url,
-               parent_id,
-               created_by,
-               created_time,
-               update_by,
-               update_time
+        category_name,
+        category_type,
+        image_url,
+        parent_id,
+        created_by,
+        created_time,
+        update_by,
+        update_time
         from subject_category
-        where id = #{id}
+        <where>
+            id = #{id}
+            <if test="isDeleted == null">
+                and is_deleted = 0
+            </if>
+            <if test="isDeleted != null">
+                and is_deleted = #{isDeleted}
+            </if>
+        </where>
     </select>
 
     <!--查询指定行数据-->
@@ -61,6 +69,12 @@
             </if>
             <if test="updateTime != null">
                 and update_time = #{updateTime}
+            </if>
+            <if test="isDeleted == null">
+                and is_deleted = 0
+            </if>
+            <if test="isDeleted != null">
+                and is_deleted = #{isDeleted}
             </if>
         </where>
         limit #{pageable.offset}, #{pageable.pageSize}
@@ -131,6 +145,9 @@
             <if test="updateTime != null">
                 and update_time = #{updateTime}
             </if>
+            <if test="isDeleted == null">
+                and is_deleted = 0
+            </if>
             <if test="isDeleted != null">
                 and is_deleted = #{isDeleted}
             </if>
@@ -142,7 +159,7 @@
         from subject_mapping a,
              subject_label b
         where a.label_id = b.id
-        and b.category_id = #{id}
+          and b.category_id = #{id}
     </select>
 
     <!--新增所有列-->

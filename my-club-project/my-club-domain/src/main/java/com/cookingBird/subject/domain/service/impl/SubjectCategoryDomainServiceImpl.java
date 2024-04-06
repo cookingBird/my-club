@@ -1,14 +1,14 @@
-package com.cookingBird.subject.domain.service.imple;
+package com.cookingBird.subject.domain.service.impl;
 
 import com.alibaba.fastjson.JSON;
 import com.cookingBird.subject.common.enums.IsDeletedFlagEnum;
 import com.cookingBird.subject.domain.convert.SubjectCategoryConverter;
 import com.cookingBird.subject.domain.entity.SubjectCategoryBO;
 import com.cookingBird.subject.domain.entity.SubjectLabelBO;
+import com.cookingBird.subject.domain.queryPO.SubjectCategoryQuery;
 import com.cookingBird.subject.domain.service.SubjectCategoryDomainService;
 import com.cookingBird.subject.infra.basic.entity.SubjectCategory;
 import com.cookingBird.subject.infra.basic.service.SubjectCategoryService;
-import com.cookingBird.subject.infra.basic.service.SubjectLabelService;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -16,17 +16,14 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.*;
+import java.util.stream.Collectors;
 
 
-@Service
+@Service("subjectCategoryDomainService")
 @Slf4j
 public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainService {
     @Resource
     private SubjectCategoryService subjectCategoryService;
-
-    @Resource
-    private SubjectLabelService subjectLabelService;
-
 
 
     @Override
@@ -41,8 +38,14 @@ public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainSe
     }
 
     @Override
-    public List<SubjectCategoryBO> queryCategory(SubjectCategoryBO subjectCategoryBO) {
-        return null;
+    public List<SubjectCategoryBO> queryCategory(SubjectCategoryQuery subjectCategoryQO) {
+
+        log.info("categoryDomainService:{}", subjectCategoryQO);
+        return subjectCategoryService
+                .queryCategory(subjectCategoryQO)
+                .stream()
+                .map(SubjectCategoryConverter.INSTANCE::Po2Bo)
+                .collect(Collectors.toList());
     }
 
     @Override

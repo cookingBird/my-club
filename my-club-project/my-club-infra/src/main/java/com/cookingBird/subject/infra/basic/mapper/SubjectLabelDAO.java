@@ -1,10 +1,13 @@
 package com.cookingBird.subject.infra.basic.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.cookingBird.subject.infra.basic.entity.SubjectLabel;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
+@Mapper
 public interface SubjectLabelDAO {
     /**
      * 通过ID查询单条数据

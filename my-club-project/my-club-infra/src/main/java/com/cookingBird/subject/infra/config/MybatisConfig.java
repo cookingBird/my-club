@@ -1,15 +1,35 @@
 package com.cookingBird.subject.infra.config;
 
+import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.inner.InnerInterceptor;
+import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
+import org.apache.ibatis.executor.Executor;
+import org.apache.ibatis.mapping.BoundSql;
+import org.apache.ibatis.mapping.MappedStatement;
+import org.apache.ibatis.mapping.ParameterMapping;
+import org.apache.ibatis.reflection.MetaObject;
+import org.apache.ibatis.session.ResultHandler;
+import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.type.TypeHandlerRegistry;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
+import java.sql.SQLException;
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.regex.Matcher;
 
 @Configuration
 public class MybatisConfig {
@@ -23,25 +43,20 @@ public class MybatisConfig {
     private String driver;
 
     @Resource
-    @Lazy
     DataSource dataSource;
 
 
-    @Bean
-    public DataSource createDataSource() {
-        DataSourceBuilder dataSourceBuilder =
-                DataSourceBuilder.create()
-                        .driverClassName(driver)
-                        .username(username)
-                        .password(password)
-                        .url(url);
-        return dataSourceBuilder.build();
-    }
+//    @Bean
+//    public MybatisSqlSessionFactoryBean mybatisSqlSessionFactoryBean() {
+//        MybatisSqlSessionFactoryBean mybatisPlus = new MybatisSqlSessionFactoryBean();
+//        mybatisPlus.setDataSource(dataSource);
+//        return mybatisPlus;
+//    }
 
     @Bean
-    public SqlSessionFactory sqlSessionFactory() throws Exception {
-        SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(dataSource);
-        return sqlSessionFactoryBean.getObject();
+    public MybatisPlusInterceptor mybatisPlusInterceptor() {
+        MybatisPlusInterceptor mybatisPlusInterceptor = new MybatisPlusInterceptor();
+        mybatisPlusInterceptor.addInnerInterceptor(new MybatisPlusAllSqlLog());
+        return mybatisPlusInterceptor;
     }
 }
