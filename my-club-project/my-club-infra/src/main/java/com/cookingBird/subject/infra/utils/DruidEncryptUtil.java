@@ -1,4 +1,4 @@
-package com.cookingBird.subject.infra.basic.utils;
+package com.cookingBird.subject.infra.utils;
 
 
 import com.alibaba.druid.filter.config.ConfigTools;

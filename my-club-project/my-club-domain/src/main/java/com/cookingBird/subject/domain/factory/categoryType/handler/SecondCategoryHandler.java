@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 
 @Component
-public class SecondCategoryHandler implements CategoryTypeHandler {
+public class SecondCategoryHandler extends CategoryTypeHandler {
     @Resource
     SubjectCategoryDomainService subjectCategoryDomainService;
 
@@ -23,9 +23,8 @@ public class SecondCategoryHandler implements CategoryTypeHandler {
 
     @Override
     public void process(SubjectCategoryBO object) {
-        SubjectCategoryBO subjectCategoryBO = object;
-        checkDefault(subjectCategoryBO);
-        Preconditions.checkNotNull(subjectCategoryBO.getParentId(), "分类父级id不能为空");
-        subjectCategoryDomainService.add(subjectCategoryBO);
+        checkDefault(object);
+        Preconditions.checkNotNull(object.getParentId(), "分类父级id不能为空");
+        subjectCategoryDomainService.add(object);
     }
 }

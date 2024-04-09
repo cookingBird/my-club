@@ -5,11 +5,10 @@ import com.cookingBird.subject.common.enums.IsDeletedFlagEnum;
 import com.cookingBird.subject.domain.convert.SubjectCategoryConverter;
 import com.cookingBird.subject.domain.entity.SubjectCategoryBO;
 import com.cookingBird.subject.domain.entity.SubjectLabelBO;
-import com.cookingBird.subject.domain.queryPO.SubjectCategoryQuery;
 import com.cookingBird.subject.domain.service.SubjectCategoryDomainService;
+
 import com.cookingBird.subject.infra.basic.entity.SubjectCategory;
 import com.cookingBird.subject.infra.basic.service.SubjectCategoryService;
-
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -38,11 +37,11 @@ public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainSe
     }
 
     @Override
-    public List<SubjectCategoryBO> queryCategory(SubjectCategoryQuery subjectCategoryQO) {
+    public List<SubjectCategoryBO> queryCategory(SubjectCategory subjectCategory) {
 
-        log.info("categoryDomainService:{}", subjectCategoryQO);
+        log.info("categoryDomainService:{}", subjectCategory);
         return subjectCategoryService
-                .queryCategory(subjectCategoryQO)
+                .queryCategory(subjectCategory)
                 .stream()
                 .map(SubjectCategoryConverter.INSTANCE::Po2Bo)
                 .collect(Collectors.toList());
@@ -52,8 +51,8 @@ public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainSe
     public Boolean update(SubjectCategoryBO subjectCategoryBO) {
         SubjectCategory subjectCategory = SubjectCategoryConverter.INSTANCE
                 .Bo2Po(subjectCategoryBO);
-        int count = subjectCategoryService.update(subjectCategory);
-        return count > 0;
+        subjectCategoryService.update(subjectCategory);
+        return true;
     }
 
     @Override
@@ -61,8 +60,8 @@ public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainSe
         SubjectCategory subjectCategory = SubjectCategoryConverter.INSTANCE
                 .Bo2Po(subjectCategoryBO);
         subjectCategory.setIsDeleted(IsDeletedFlagEnum.DELETE.getCode());
-        int count = subjectCategoryService.update(subjectCategory);
-        return count > 0;
+        subjectCategoryService.update(subjectCategory);
+        return true;
     }
 
     @SneakyThrows

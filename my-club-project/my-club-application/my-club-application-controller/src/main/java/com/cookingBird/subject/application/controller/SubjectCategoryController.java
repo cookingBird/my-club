@@ -4,13 +4,13 @@ import com.alibaba.fastjson.JSON;
 import com.cookingBird.subject.application.convert.SubjectCategoryDTOConverter;
 import com.cookingBird.subject.application.dto.SubjectCategoryDTO;
 import com.cookingBird.subject.application.dto.SubjectCategoryQueryDTO;
-import com.cookingBird.subject.common.entity.Result;
+import com.cookingBird.subject.common.entity.impl.Result;
 import com.cookingBird.subject.common.factory.FactoryUnSupportException;
 import com.cookingBird.subject.common.factory.Handler;
 import com.cookingBird.subject.domain.entity.SubjectCategoryBO;
 import com.cookingBird.subject.domain.factory.categoryType.CategoryTypeHandlerFactory;
-import com.cookingBird.subject.domain.queryPO.SubjectCategoryQuery;
 import com.cookingBird.subject.domain.service.SubjectCategoryDomainService;
+import com.cookingBird.subject.infra.basic.entity.SubjectCategory;
 import com.google.common.base.Preconditions;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -49,7 +49,7 @@ public class SubjectCategoryController {
         }
         catch (Exception e) {
             log.error("SubjectCategoryController.add.error:{}", e.getMessage(), e);
-            return Result.fail("新增分类失败");
+            return Result.fail(false);
         }
     }
 
@@ -80,7 +80,7 @@ public class SubjectCategoryController {
         }
 
         List<SubjectCategoryDTO> subjectCategoryDTOS = subjectCategoryDomainService
-                .queryCategory(new SubjectCategoryQuery())
+                .queryCategory(new SubjectCategory())
                 .stream()
                 .map(SubjectCategoryDTOConverter.INSTANCE::Bo2Dto)
                 .collect(Collectors.toList());

@@ -33,8 +33,7 @@ public class SubjectLabelDomainServiceImpl implements SubjectLabelDomainService 
         SubjectLabel subjectLabel = SubjectLabelConverter.INSTANCE
                 .BO2PO(subjectLabelBO);
         subjectLabel.setIsDeleted(IsDeletedFlagEnum.UN_DELETE.getCode());
-        int count = subjectLabelService.insert(subjectLabel);
-        return count > 0;
+        return subjectLabelService.insert(subjectLabel);
     }
 
     @Override
@@ -44,8 +43,7 @@ public class SubjectLabelDomainServiceImpl implements SubjectLabelDomainService 
         }
         SubjectLabel subjectLabel = SubjectLabelConverter.INSTANCE
                 .BO2PO(subjectLabelBO);
-        int count = subjectLabelService.update(subjectLabel);
-        return count > 0;
+        return subjectLabelService.update(subjectLabel);
     }
 
     @Override
@@ -56,8 +54,7 @@ public class SubjectLabelDomainServiceImpl implements SubjectLabelDomainService 
         SubjectLabel subjectLabel = SubjectLabelConverter.INSTANCE
                 .BO2PO(subjectLabelBO);
         subjectLabel.setIsDeleted(IsDeletedFlagEnum.DELETE.getCode());
-        int count = subjectLabelService.update(subjectLabel);
-        return count > 0;
+        return subjectLabelService.update(subjectLabel);
     }
 
     @Override

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 
 @Component
-public class PrimaryCategoryHandler implements CategoryTypeHandler {
+public class PrimaryCategoryHandler extends CategoryTypeHandler {
     @Resource
     SubjectCategoryDomainService subjectCategoryDomainService;
 
@@ -21,9 +21,8 @@ public class PrimaryCategoryHandler implements CategoryTypeHandler {
 
     @Override
     public void process(SubjectCategoryBO object) {
-        SubjectCategoryBO subjectCategoryBO = object;
-        checkDefault(subjectCategoryBO);
-        subjectCategoryDomainService.add(subjectCategoryBO);
+        checkDefault(object);
+        subjectCategoryDomainService.add(object);
     }
 
 }

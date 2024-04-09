@@ -8,13 +8,9 @@ import java.util.List;
 import java.util.Map;
 
 abstract public class AbstractFactory implements InitializingBean, Factory {
-    private static Map<Enum, Handler> handlerMap = new HashMap<>();
+    protected final Map<Enum, Handler> handlerMap = new HashMap<>();
 
     protected abstract List<Handler> getInjectHandlers();
-
-    public Handler getHandler(Enum en) {
-        return handlerMap.get(en);
-    }
 
     @Override
     public void afterPropertiesSet() throws Exception {

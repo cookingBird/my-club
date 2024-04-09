@@ -6,14 +6,14 @@ import com.cookingBird.subject.common.factory.Handler;
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.StringUtils;
 
-public interface CategoryTypeHandler extends Handler<SubjectCategoryBO> {
-    default void checkDefault(SubjectCategoryBO subjectCategoryBO) {
+abstract public class CategoryTypeHandler implements Handler<SubjectCategoryBO> {
+    public void checkDefault(SubjectCategoryBO subjectCategoryBO) {
         Preconditions.checkArgument(!StringUtils.isBlank(subjectCategoryBO.getCategoryName()), "分类名称不能为空");
     }
 
     @Override
-    Enum getType();
+    abstract public Enum getType();
 
     @Override
-    void process(SubjectCategoryBO object);
+    abstract public void process(SubjectCategoryBO object);
 }
