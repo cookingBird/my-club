@@ -1,16 +1,16 @@
 package com.cookingBird.subject.application.convert;
 
 import com.cookingBird.subject.application.dto.SubjectCategoryDTO;
-import com.cookingBird.subject.domain.entity.SubjectCategoryBO;
-import com.cookingBird.subject.domain.entity.SubjectCategoryBO.SubjectCategoryBOBuilder;
+import com.cookingBird.subject.domain.models.SubjectCategoryBO;
+import com.cookingBird.subject.domain.models.SubjectCategoryBO.SubjectCategoryBOBuilder;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-04-08T22:22:21+0800",
-    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 1.8.0_92 (Oracle Corporation)"
+    date = "2024-04-17T12:34:24+0800",
+    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 1.8.0_181 (Oracle Corporation)"
 )
 public class SubjectCategoryDTOConverterImpl implements SubjectCategoryDTOConverter {
 

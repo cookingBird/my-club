@@ -2,10 +2,12 @@ package com.cookingBird.subject.infra.convert;
 
 import com.cookingBird.subject.infra.basic.entity.SubjectLabel;
 import com.cookingBird.subject.infra.generate.entity.GenSubjectLabel;
+import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
+@Mapper
 public interface SubjectLabelConvert {
 
     SubjectLabelConvert INSTANCE = Mappers.getMapper(SubjectLabelConvert.class);

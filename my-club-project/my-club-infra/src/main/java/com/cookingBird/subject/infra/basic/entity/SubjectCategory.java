@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
-public class SubjectCategory extends BaseEntity implements Serializable, ITreeStruct<Integer> {
+public class SubjectCategory extends BaseEntity implements Serializable, ITreeStruct<Long> {
     private static final long serialVersionUID = -51261305032127377L;
 
     @ApiModelProperty(value = "主键")

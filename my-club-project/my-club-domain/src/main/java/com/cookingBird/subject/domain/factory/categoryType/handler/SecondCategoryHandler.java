@@ -1,8 +1,7 @@
 package com.cookingBird.subject.domain.factory.categoryType.handler;
 
 import com.cookingBird.subject.common.enums.CategoryEnum;
-import com.cookingBird.subject.domain.entity.SubjectCategoryBO;
-import com.cookingBird.subject.common.factory.Handler;
+import com.cookingBird.subject.domain.models.SubjectCategoryBO;
 import com.cookingBird.subject.domain.factory.categoryType.*;
 import com.cookingBird.subject.domain.service.SubjectCategoryDomainService;
 import com.google.common.base.Preconditions;

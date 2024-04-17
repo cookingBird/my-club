@@ -3,7 +3,7 @@ package com.cookingBird.subject.domain.service.impl;
 import com.alibaba.fastjson.JSON;
 import com.cookingBird.subject.common.enums.IsDeletedFlagEnum;
 import com.cookingBird.subject.domain.convert.SubjectLabelConverter;
-import com.cookingBird.subject.domain.entity.SubjectLabelBO;
+import com.cookingBird.subject.domain.models.SubjectLabelBO;
 import com.cookingBird.subject.domain.service.SubjectLabelDomainService;
 import com.cookingBird.subject.infra.basic.entity.SubjectLabel;
 import com.cookingBird.subject.infra.basic.service.SubjectCategoryService;

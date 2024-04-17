@@ -2,6 +2,7 @@ package com.cookingBird.subject.infra.basic.service.impl;
 
 import com.cookingBird.subject.infra.basic.entity.SubjectCategory;
 import com.cookingBird.subject.infra.basic.service.SubjectCategoryService;
+import com.cookingBird.subject.infra.convert.ConvertUtils;
 import com.cookingBird.subject.infra.convert.SubjectCategoryConvert;
 import com.cookingBird.subject.infra.generate.dao.GenSubjectCategoryDao;
 import com.cookingBird.subject.infra.generate.entity.GenSubjectCategory;
@@ -27,7 +28,7 @@ public class SubjectCategoryServiceImpl implements SubjectCategoryService {
         GenSubjectCategory genSubjectCategory1 = SubjectCategoryConvert.INSTANCE.po2gen(subjectCategory);
         PageRequest pageRequest = PageRequest.of(0, 100);
         List<GenSubjectCategory> genSubjectCategoryList = this.genSubjectCategoryDao.queryAllByLimit(genSubjectCategory1, pageRequest);
-        return SubjectCategoryConvert.INSTANCE.gen2poList(genSubjectCategoryList);
+        return ConvertUtils.convertList(genSubjectCategoryList, SubjectCategoryConvert.INSTANCE::gen2po);
     }
 
     @Override

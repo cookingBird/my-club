@@ -1,6 +1,6 @@
 package com.cookingBird.subject.domain.service;
 
-import com.cookingBird.subject.domain.entity.SubjectCategoryBO;
+import com.cookingBird.subject.domain.models.SubjectCategoryBO;
 import com.cookingBird.subject.infra.basic.entity.SubjectCategory;
 
 import java.util.List;

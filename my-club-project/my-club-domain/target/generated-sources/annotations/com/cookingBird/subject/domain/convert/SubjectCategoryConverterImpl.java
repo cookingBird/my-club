@@ -1,6 +1,6 @@
 package com.cookingBird.subject.domain.convert;
 
-import com.cookingBird.subject.domain.entity.SubjectCategoryBO;
+import com.cookingBird.subject.domain.models.SubjectCategoryBO;
 import com.cookingBird.subject.infra.basic.entity.SubjectCategory;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,8 +8,8 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2024-04-09T23:13:08+0800",
-    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 1.8.0_92 (Oracle Corporation)"
+    date = "2024-04-17T12:34:23+0800",
+    comments = "version: 1.4.2.Final, compiler: javac, environment: Java 1.8.0_181 (Oracle Corporation)"
 )
 public class SubjectCategoryConverterImpl implements SubjectCategoryConverter {
 

@@ -1,7 +1,7 @@
 package com.cookingBird.subject.domain.convert;
 
 
-import com.cookingBird.subject.domain.entity.SubjectLabelBO;
+import com.cookingBird.subject.domain.models.SubjectLabelBO;
 import com.cookingBird.subject.infra.basic.entity.SubjectLabel;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

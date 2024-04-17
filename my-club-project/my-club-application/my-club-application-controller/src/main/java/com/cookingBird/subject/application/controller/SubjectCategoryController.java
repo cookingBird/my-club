@@ -7,7 +7,7 @@ import com.cookingBird.subject.application.dto.SubjectCategoryQueryDTO;
 import com.cookingBird.subject.common.entity.impl.Result;
 import com.cookingBird.subject.common.factory.FactoryUnSupportException;
 import com.cookingBird.subject.common.factory.Handler;
-import com.cookingBird.subject.domain.entity.SubjectCategoryBO;
+import com.cookingBird.subject.domain.models.SubjectCategoryBO;
 import com.cookingBird.subject.domain.factory.categoryType.CategoryTypeHandlerFactory;
 import com.cookingBird.subject.domain.service.SubjectCategoryDomainService;
 import com.cookingBird.subject.infra.basic.entity.SubjectCategory;
