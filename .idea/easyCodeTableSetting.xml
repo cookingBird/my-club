@@ -846,9 +846,10 @@
                     <option name="type" value="java.lang.Integer" />
                   </ColumnInfoDTO>
                   <ColumnInfoDTO>
+                    <option name="comment" value="分类ID" />
                     <option name="custom" value="false" />
                     <option name="ext" value="{}" />
-                    <option name="name" value="categoryId" />
+                    <option name="name" value="subjectCategoryId" />
                     <option name="type" value="java.lang.String" />
                   </ColumnInfoDTO>
                   <ColumnInfoDTO>
