@@ -20,11 +20,11 @@ public class BaseEntity extends LogicDeleteEntity implements Serializable, ICrea
     private String createBy;
 
     @ApiModelProperty(value = "创建时间")
-    private Date createTime;
+    private Long createTime;
 
     @ApiModelProperty(value = "修改人")
     private String updateBy;
 
     @ApiModelProperty(value = "修改时间")
-    private Date updateTime;
+    private Long updateTime;
 }

@@ -3,14 +3,13 @@ package com.cookingBird.subject.infra.generate.dao;
 import com.cookingBird.subject.infra.generate.entity.GenSubjectLabel;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.data.domain.Pageable;
-
 import java.util.List;
 
 /**
  * 题目标签表(GenSubjectLabel)表数据库访问层
  *
  * @author makejava
- * @since 2024-04-09 23:25:46
+ * @since 2024-04-18 00:38:26
  */
 public interface GenSubjectLabelDao {
 
@@ -26,7 +25,7 @@ public interface GenSubjectLabelDao {
      * 查询指定行数据
      *
      * @param genSubjectLabel 查询条件
-     * @param pageable        分页对象
+     * @param pageable         分页对象
      * @return 对象列表
      */
     List<GenSubjectLabel> queryAllByLimit(GenSubjectLabel genSubjectLabel, @Param("pageable") Pageable pageable);

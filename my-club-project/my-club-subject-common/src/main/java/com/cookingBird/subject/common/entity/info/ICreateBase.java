@@ -5,6 +5,6 @@ import java.util.Date;
 public interface ICreateBase {
     String getCreateBy();
 
-    Date getCreateTime();
+    Long getCreateTime();
 
 }

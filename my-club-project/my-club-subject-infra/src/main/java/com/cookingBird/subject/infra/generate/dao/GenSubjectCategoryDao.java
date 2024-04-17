@@ -9,7 +9,7 @@ import java.util.List;
  * 题目分类(GenSubjectCategory)表数据库访问层
  *
  * @author makejava
- * @since 2024-04-09 22:35:30
+ * @since 2024-04-18 00:36:47
  */
 public interface GenSubjectCategoryDao {
 

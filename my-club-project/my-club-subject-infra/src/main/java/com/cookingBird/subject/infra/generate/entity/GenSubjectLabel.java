@@ -1,34 +1,33 @@
 package com.cookingBird.subject.infra.generate.entity;
 
-import java.util.Date;
 import java.io.Serializable;
-
 import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 题目标签表(GenSubjectLabel)实体类
  *
  * @author makejava
- * @since 2024-04-09 23:25:46
+ * @since 2024-04-18 00:38:26
  */
 public class GenSubjectLabel implements Serializable {
-    private static final long serialVersionUID = 944616698926753866L;
-    @ApiModelProperty(value = "主键")
-    private Long id;
-    @ApiModelProperty(value = "标签分类")
-    private String labelName;
-    @ApiModelProperty(value = "排序")
-    private Integer sortNum;
-    private String categoryId;
-    @ApiModelProperty(value = "创建人")
-    private String createdBy;
-    @ApiModelProperty(value = "创建时间")
-    private Date createdTime;
-    @ApiModelProperty(value = "更新人")
-    private String updateBy;
-    @ApiModelProperty(value = "更新时间")
-    private Date updateTime;
-    private Integer isDeleted;
+    private static final long serialVersionUID = 467646518757306996L;
+        @ApiModelProperty(value = "主键")
+        private Long id;
+        @ApiModelProperty(value = "标签分类")
+        private String labelName;
+        @ApiModelProperty(value = "排序")
+        private Integer sortNum;
+        @ApiModelProperty(value = "分类ID")
+        private String subjectCategoryId;
+        @ApiModelProperty(value = "创建人")
+        private String createdBy;
+        @ApiModelProperty(value = "创建时间")
+        private Long createdTime;
+        @ApiModelProperty(value = "更新人")
+        private String updateBy;
+        @ApiModelProperty(value = "更新时间")
+        private Long updateTime;
+        private Integer isDeleted;
 
 
     public Long getId() {
@@ -55,12 +54,12 @@ public class GenSubjectLabel implements Serializable {
         this.sortNum = sortNum;
     }
 
-    public String getCategoryId() {
-        return categoryId;
+    public String getSubjectCategoryId() {
+        return subjectCategoryId;
     }
 
-    public void setCategoryId(String categoryId) {
-        this.categoryId = categoryId;
+    public void setSubjectCategoryId(String subjectCategoryId) {
+        this.subjectCategoryId = subjectCategoryId;
     }
 
     public String getCreatedBy() {
@@ -71,11 +70,11 @@ public class GenSubjectLabel implements Serializable {
         this.createdBy = createdBy;
     }
 
-    public Date getCreatedTime() {
+    public Long getCreatedTime() {
         return createdTime;
     }
 
-    public void setCreatedTime(Date createdTime) {
+    public void setCreatedTime(Long createdTime) {
         this.createdTime = createdTime;
     }
 
@@ -87,11 +86,11 @@ public class GenSubjectLabel implements Serializable {
         this.updateBy = updateBy;
     }
 
-    public Date getUpdateTime() {
+    public Long getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(Long updateTime) {
         this.updateTime = updateTime;
     }
 

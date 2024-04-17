@@ -1,6 +1,5 @@
 package com.cookingBird.subject.infra.generate.entity;
 
-import java.util.Date;
 import java.io.Serializable;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -8,10 +7,10 @@ import io.swagger.annotations.ApiModelProperty;
  * 题目分类(GenSubjectCategory)实体类
  *
  * @author makejava
- * @since 2024-04-09 22:35:32
+ * @since 2024-04-18 00:36:47
  */
 public class GenSubjectCategory implements Serializable {
-    private static final long serialVersionUID = -53837203607972252L;
+    private static final long serialVersionUID = 703733728629283015L;
         @ApiModelProperty(value = "主键")
         private Long id;
         @ApiModelProperty(value = "分类名称")
@@ -25,11 +24,11 @@ public class GenSubjectCategory implements Serializable {
         @ApiModelProperty(value = "创建人")
         private String createdBy;
         @ApiModelProperty(value = "创建时间")
-        private Date createdTime;
+        private Long createdTime;
         @ApiModelProperty(value = "更新人")
         private String updateBy;
         @ApiModelProperty(value = "更新时间")
-        private Date updateTime;
+        private Long updateTime;
         @ApiModelProperty(value = "是否删除 0: 未删除 1: 已删除")
         private Integer isDeleted;
 
@@ -82,11 +81,11 @@ public class GenSubjectCategory implements Serializable {
         this.createdBy = createdBy;
     }
 
-    public Date getCreatedTime() {
+    public Long getCreatedTime() {
         return createdTime;
     }
 
-    public void setCreatedTime(Date createdTime) {
+    public void setCreatedTime(Long createdTime) {
         this.createdTime = createdTime;
     }
 
@@ -98,11 +97,11 @@ public class GenSubjectCategory implements Serializable {
         this.updateBy = updateBy;
     }
 
-    public Date getUpdateTime() {
+    public Long getUpdateTime() {
         return updateTime;
     }
 
-    public void setUpdateTime(Date updateTime) {
+    public void setUpdateTime(Long updateTime) {
         this.updateTime = updateTime;
     }
 

@@ -14,6 +14,7 @@
         <module name="my-club-subject-starter" />
         <module name="my-club-application-job" />
         <module name="my-club-application-mq" />
+        <module name="my-club-subject-api" />
         <module name="my-club-subject-domain" />
       </profile>
     </annotationProcessing>
