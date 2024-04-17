@@ -9,11 +9,11 @@
   <version>1.0-SNAPSHOT</version>
 
   <modules>
-    <module>my-club-application</module>
-    <module>my-club-common</module>
-    <module>my-club-domain</module>
-    <module>my-club-infra</module>
-    <module>my-club-starter</module>
+    <module>my-club-subject-application</module>
+    <module>my-club-subject-common</module>
+    <module>my-club-subject-domain</module>
+    <module>my-club-subject-infra</module>
+    <module>my-club-subject-starter</module>
     <module>my-club-subject-api</module>
   </modules>
   <packaging>pom</packaging>

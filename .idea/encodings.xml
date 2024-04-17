@@ -5,12 +5,14 @@
     <file url="file://$PROJECT_DIR$/my-club-project/my-club-application/my-club-application-job/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/my-club-project/my-club-application/my-club-application-mq/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/my-club-project/my-club-common/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/my-club-project/my-club-common/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/my-club-project/my-club-domain/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/my-club-project/my-club-infra/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/my-club-project/my-club-infra/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/my-club-project/my-club-starter/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/my-club-project/my-club-starter/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/my-club-project/my-club-subject-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/my-club-project/my-club-subject-application/my-club-application-controller/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/my-club-project/my-club-subject-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/my-club-project/my-club-subject-domain/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/my-club-project/my-club-subject-infra/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/my-club-project/my-club-subject-infra/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/my-club-project/my-club-subject-starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/my-club-project/my-club-subject-starter/src/main/resources" charset="UTF-8" />
   </component>
 </project>
