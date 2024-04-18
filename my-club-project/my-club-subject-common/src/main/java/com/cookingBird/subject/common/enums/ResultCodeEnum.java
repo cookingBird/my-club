@@ -3,13 +3,13 @@ package com.cookingBird.subject.common.enums;
 import lombok.Getter;
 
 @Getter
-public enum ResultCodeEnum implements Enum {
+public enum ResultCodeEnum implements Enum<Integer> {
     SUCCESS(200, "成功"),
     FAIL(500, "失败"),
     ;
 
 
-    int code;
+    Integer code;
     String desc;
 
     ResultCodeEnum(int code, String desc) {
@@ -17,9 +17,9 @@ public enum ResultCodeEnum implements Enum {
         this.desc = desc;
     }
 
-    public static ResultCodeEnum getByCode(int codeVal) {
+    public static ResultCodeEnum getByCode(Integer codeVal) {
         for (ResultCodeEnum resultCodeEnum : ResultCodeEnum.values()) {
-            if (resultCodeEnum.code == codeVal) {
+            if (resultCodeEnum.code.equals(codeVal)) {
                 return resultCodeEnum;
             }
         }

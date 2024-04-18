@@ -8,7 +8,6 @@ com\cookingBird\subject\infra\basic\service\impl\SubjectLabelServiceImpl.class
 com\cookingBird\subject\infra\generate\entity\GenSubjectLabel.class
 com\cookingBird\subject\infra\config\MybatisConfig.class
 com\cookingBird\subject\infra\convert\SubjectCategoryConvert.class
-com\cookingBird\subject\infra\convert\ConvertUtils.class
 com\cookingBird\subject\infra\generate\entity\GenSubjectCategory.class
 com\cookingBird\subject\infra\basic\entity\SubjectLabel.class
 com\cookingBird\subject\infra\basic\service\SubjectLabelService.class

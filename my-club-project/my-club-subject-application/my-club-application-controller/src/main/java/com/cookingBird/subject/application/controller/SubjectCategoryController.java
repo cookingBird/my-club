@@ -6,7 +6,8 @@ import com.cookingBird.subject.application.dto.SubjectCategoryDTO;
 import com.cookingBird.subject.application.dto.SubjectCategoryQueryDTO;
 import com.cookingBird.subject.common.entity.impl.Result;
 import com.cookingBird.subject.common.factory.FactoryUnSupportException;
-import com.cookingBird.subject.common.factory.Handler;
+import com.cookingBird.subject.common.handler.Handler;
+import com.cookingBird.subject.common.processor.Processor;
 import com.cookingBird.subject.domain.models.SubjectCategoryBO;
 import com.cookingBird.subject.domain.factory.categoryType.CategoryTypeHandlerFactory;
 import com.cookingBird.subject.domain.service.SubjectCategoryDomainService;
@@ -40,10 +41,10 @@ public class SubjectCategoryController {
                 log.info("SubjectCategoryController.add.dto:{}", JSON.toJSONString(subjectCategoryDTO));
             }
             Preconditions.checkNotNull(subjectCategoryDTO.getCategoryType(), "分类类型不能为空");
-            Handler categoryTypeHandler = categoryTypeHandlerFactory.getHandler(subjectCategoryDTO.getCategoryType());
-            if (categoryTypeHandler == null) throw FactoryUnSupportException.create();
+            Processor<SubjectCategoryBO, Void> handler = categoryTypeHandlerFactory.getHandler(subjectCategoryDTO.getCategoryType());
+            if (handler == null) throw FactoryUnSupportException.create();
             SubjectCategoryBO subjectCategoryBO = SubjectCategoryDTOConverter.INSTANCE.Dto2Bo(subjectCategoryDTO);
-            categoryTypeHandler.process(subjectCategoryBO);
+            handler.process(subjectCategoryBO);
             log.info(subjectCategoryBO.toString() + " " + subjectCategoryBO.getId());
             return Result.ok(true);
         }

@@ -19,9 +19,10 @@ public class PrimaryCategoryHandler extends CategoryTypeHandler {
     }
 
     @Override
-    public void process(SubjectCategoryBO object) {
+    public Void process(SubjectCategoryBO object) {
         checkDefault(object);
         subjectCategoryDomainService.add(object);
+        return null;
     }
 
 }

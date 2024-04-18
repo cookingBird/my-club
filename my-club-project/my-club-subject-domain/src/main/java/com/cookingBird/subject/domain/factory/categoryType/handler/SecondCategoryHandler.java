@@ -21,9 +21,10 @@ public class SecondCategoryHandler extends CategoryTypeHandler {
     }
 
     @Override
-    public void process(SubjectCategoryBO object) {
+    public Void process(SubjectCategoryBO object) {
         checkDefault(object);
         Preconditions.checkNotNull(object.getParentId(), "分类父级id不能为空");
         subjectCategoryDomainService.add(object);
+        return null;
     }
 }

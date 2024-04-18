@@ -1,12 +1,8 @@
 package com.cookingBird.subject.common.enums;
 
-public interface Enum {
+public interface Enum<T> {
 
-    int getCode();
+    T getCode();
 
     String getDesc();
-
-    static Object getByCode(int codeVal) {
-        return null;
-    }
 }
